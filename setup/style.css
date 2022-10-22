@@ -1,0 +1,302 @@
+body {
+    color: white;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    padding: 0 16px;
+    overflow: auto;
+ 
+  }
+
+.head{
+padding: 20px;
+}
+  h5{
+    padding-bottom: 12px;
+    color: lightgray;
+  }
+
+ul{
+  line-height: normal;
+
+}
+  
+li{
+  line-height: 12px;
+}
+
+#shapeShifter {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+#advColor {
+  color: lightgray;
+}
+
+#advColorOptions {
+  padding: 0 12px;
+}
+
+@media (prefers-color-scheme: dark), (prefers-color-scheme: darkest) {
+  label {
+    color: #e0e0e0;
+  }
+}
+
+/* tweaks for better appearance */
+sp-textarea {
+  display: block;
+  width: 240px;
+}
+
+/* tooltip */
+.tooltip {
+  position: relative;
+}
+
+.tooltip sp-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 133%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.tooltip:hover sp-tooltip {
+  display: block;
+}
+
+/* dialog styles */
+:not(.xd) dialog {
+  width: 480px;
+  height: 240px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+:not(.xd) dialog form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+:not(.xd) dialog form > * {
+  flex: 0 0 auto;
+  margin: 8px;
+}
+
+.xd dialog form sp-divider {
+  width: calc(100% - 16px);
+}
+
+dialog form sp-body {
+  flex: 1 1 auto;
+}
+
+.wrapper {
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  display: absolute;
+  padding: 2px 2px 2px 2px;
+  overflow: auto;
+  background-color: #404040;
+}
+
+.buttonGroup {
+  flex: 0 0 auto;
+  background-color: rgb(80,80,80);
+  border-radius: 0px;
+  padding: 28px 24px 24px 12px ;
+  position:static;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex-direction: column;
+}
+
+.firstGroup {
+  flex: 0 0 auto;
+  background-color: rgb(80,80,80);
+  border-radius: 0px;
+  padding: 24px 0px 24px 19px ;
+  position: relative;
+  margin-top: 2px;
+  margin-bottom: 1px;
+  flex-direction: column;
+}
+
+
+.group {
+  flex: 0 0 auto;
+  background-color: rgb(82, 82, 82);
+  border-radius: 0px;
+  padding: 12px 24px 12px 12px ;
+  position: relative;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  flex-direction: column;
+}
+.lastGroup {
+  flex: 0 0 auto;
+  background-color: rgb(80,80,80);
+  border-radius: 0px;
+  padding: 12px 24px 12px 12px ;
+  position: relative;
+  margin-top: 2px;
+  margin-bottom: 1px;
+  flex-direction: column;
+  height: 100vh;
+}
+
+
+.xd .wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* tabs */
+.sp-tabs {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  margin-left: 0px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  background-color: rgb(80,80,80);
+  border-bottom: 2px solid rgb(80,80,80);
+}
+
+.sp-tab {
+  margin-right: 12px;
+}
+.sp-tab sp-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sp-tab:hover sp-label {
+  color: white;
+}
+
+.sp-tab.selected {
+  border-bottom: 2px solid rgb(255, 255, 255);
+  margin-bottom: -2px;
+}
+.sp-tab.selected sp-label {
+  color: rgb(255, 255, 255);
+}
+@media (prefers-color-scheme: light), (prefers-color-scheme: lightest) {
+  .sp-tabs {
+    border-bottom: 2px solid #b8b8b8;
+  }
+  .sp-tab sp-label {
+    color: rgba(0, 0, 0, 0.66);
+  }
+  .sp-tab:hover sp-label {
+    color: black;
+  }
+  .sp-tab.selected {
+    border-bottom: 2px solid black;
+  }
+  .sp-tab.selected sp-label {
+    color: black;
+  }
+}
+.sp-tab-page {
+  display: none;
+  flex: 0 0 auto;
+  background-color: rgb(100, 72, 72,0);
+  border-radius: 0px;
+  padding: 0px ;
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex-direction: column;
+  
+}
+.sp-tab-page.visible {
+  display: flex;
+}
+.sp-tab-page > * {
+  flex: 0 0 auto;
+}
+
+
+
+
+
+/* groups */
+
+
+
+#sp-native-tab-page .group {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.group > sp-label:not(.safe) {
+  position: absolute;
+  top: -1em;
+  left: 0px;
+  background-color: #3e3e3e;
+  display: block;
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+@media (prefers-color-scheme: light), (prefers-color-scheme: lightest) {
+  .group {
+    background-color: rgba(0, 0, 0, 0.0625);
+  }
+  .group > sp-label:not(.safe) {
+    background-color: #e8e8e8;
+  }
+}
+
+.group > :not(sp-label) {
+  margin: 6px;
+}
+
+/* icons */
+.icon {
+  fill: currentColor;
+  height: 18px;
+  width: 18px;
+}
+.icon svg {
+  height: 18px;
+  width: 18px;
+}
+
+/* logs */
+.console {
+  flex: 0 0 auto;
+  overflow: scroll;
+  height: 140px;
+  display: none;
+}
+.console.visible {
+  display: block;
+}
+
+.console #logs {
+  white-space: pre;
+  font-family: menlo;
+  font-size: 8px;
+  color: black;
+  background-color: white;
+}

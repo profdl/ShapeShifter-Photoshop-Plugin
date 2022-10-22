@@ -1,0 +1,109 @@
+{
+	"name": "Shape Shifter",
+	"id": "8346e2ef",
+	"main": "index.html",
+	"version": "2.1.0",
+	"manifestVersion": 5,
+	"host": {
+		"app": "PS",
+		"minVersion": "23.3"
+	},
+	"entrypoints": [
+
+		
+		{
+			"type": "panel",
+			"id": "controlPanel",
+			"label": {
+				"default": "Control Panel"
+			},
+			"minimumSize": {
+				"width": 290,
+				"height": 200
+			},
+			"maximumSize": {
+				"width": 2000,
+				"height": 2000
+			},
+			"preferredDockedSize": {
+				"width": 290,
+				"height": 600
+			},
+			"preferredFloatingSize": {
+				"width": 290,
+				"height": 600
+			},
+			"icons": [{
+				"width": 23,
+				"height": 23,
+				"path": "setup/icons/light.png",
+				"scale": [1, 2],
+				"theme": ["darkest", "dark", "medium"]
+			}, {
+				"width": 23,
+				"height": 23,
+				"path": "setup/icons/dark.png",
+				"scale": [1, 2],
+				"theme": ["lightest", "light"]
+			}]
+		},
+		{
+			"type": "panel",
+			"id": "generatorsPanel",
+			"label": {
+				"default": "Generators"
+			},
+			"minimumSize": {
+				"width": 290,
+				"height": 200
+			},
+			"maximumSize": {
+				"width": 2000,
+				"height": 2000
+			},
+			"preferredDockedSize": {
+				"width": 400,
+				"height": 600
+			},
+			"preferredFloatingSize": {
+				"width": 400,
+				"height": 600
+			},
+			"icons": [{
+				"width": 23,
+				"height": 23,
+				"path": "setup/icons/light.png",
+				"scale": [1, 2],
+				"theme": ["darkest", "dark", "medium"]
+			}, {
+				"width": 23,
+				"height": 23,
+				"path": "setup/icons/dark.png",
+				"scale": [1, 2],
+				"theme": ["lightest", "light"]
+			}]
+		},
+		{
+			"type": "command",
+			"id": "resetStateFn",
+			"label": {
+				"default": "Reset Plugin state"
+			}
+		}
+	],
+	"icons": [{
+		"width": 48,
+		"height": 48,
+		"path": "setup/icons/lightPlugin.png",
+		"scale": [1, 2],
+		"theme": ["darkest", "dark", "medium"],
+		"species": ["pluginList"]
+	}, {
+		"width": 48,
+		"height": 48,
+		"path": "setup/icons/darkPlugin.png",
+		"scale": [1, 2],
+		"theme": ["lightest", "light"],
+		"species": ["pluginList"]
+	}]
+}

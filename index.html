@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="setup/style.css" rel="stylesheet" />
+    <script src="setup/panelSetup.js"></script>
+    <script src="setup/animationVariables.js"></script>
+    <script src="setup/generatorSwitches.js"></script>
+
+    <script src="presets/presetShell.js"></script>
+    <script src="presets/presetRipple.js"></script>
+    <script src="presets/presetsMold.js"></script>
+    <script src="presets/presetMirrorBuild.js"></script>
+    <script src="presets/presetEvolvingCreature.js"></script>
+    <script src="presets/presetMenu.js"></script>
+
+    <script src="animationTools.js"></script>
+    <script src="generators/layerControls.js"></script>
+
+    <script src="generators/wave.js"></script>
+    <script src="generators/shapeShift.js"></script>
+    <script src="generators/warpShifter.js"></script>
+    <script src="generators/reaction.js"></script>
+    <script src="generators/colorShift.js"></script>
+
+
+</head>
+
+<body>
+    <!-------------------------------------------------------------------->
+    <!-- CONTROL PANEL  ------------------------------>
+    <!-------------------------------------------------------------------->
+    <div class="controlPanel" id="controlPanel">
+        <div class="group">
+            <h5>
+                ANIMATION TOOLS
+            </h5>
+            <sp-button size="m" id="controlButton">CREATE ANIMATION FRAME</sp-button>
+        </div>
+
+        <div class="group">
+            <sp-picker class="presetMenuInput" id="presetMenuInput" name="presetMenuInput" size="S" selected="0">
+                <sp-label slot="label">CHOOSE PRESET:
+                </sp-label>
+                <sp-menu slot="options">
+                    <sp-menu-item value="shell" selected>
+                        Shell (Default)
+                    </sp-menu-item>
+                    <sp-menu-item value="moldGrowth">
+                        Mold Growth
+                    </sp-menu-item>
+                    <sp-menu-item value="ripple">
+                        Ripple
+                    </sp-menu-item>
+                    <sp-menu-item value="mirrorBuild">
+                        Mirror Build
+                    </sp-menu-item>
+                    <sp-menu-item value="evolvingCreature">
+                        Evolving Creature
+                    </sp-menu-item>
+                </sp-menu>
+            </sp-picker>
+        </div>
+
+        <div class="group">
+            <h6>Generators:</h6>
+            <ul>
+                <li>
+                    <sp-switch emphasized size="S" id="shaperCheck" checked>Shape Shifter</sp-switch>
+
+                </li>
+                <li>
+                    <sp-switch emphasized size="S" id="colorCheck" checked>Color Shifter</sp-switch>
+                </li>
+                <li>
+                    <sp-switch emphasized size="S" id="waveCheck" checked>Wave Machine</sp-switch>
+                </li>
+                <li>
+                    <sp-switch emphasized size="S" id="reactionCheck" checked>Reaction
+                        Diffusion</sp-switch>
+                </li>
+                <li>
+                    <sp-switch emphasized size="S" id="warpCheck" checked>Warp Shifter</sp-switch>
+
+                </li>
+
+
+
+                <li>
+                    <sp-checkbox size="S" id="invertCheck" checked>Invert Color</sp-checkbox>
+
+                </li>
+                <li>
+                    <sp-checkbox size="S" id="mergeCheck" checked>RECURSION</sp-checkbox>
+                </li>
+            </ul>
+        </div>
+
+        <div class="group">
+
+            <sp-divider size="medium"></sp-divider>
+            <sp-action-button size="L" id="animButton">Create Timeline</sp-action-button><br>
+            <sp-checkbox size="L" id="exportCheck" checked>Export as Video (mp4)</sp-checkbox>
+        </div>
+        <div class="group">
+
+            <h5> INSTRUCTIONS:</h5>
+            To create a generative animation:
+            <sp-menu>
+                <li>
+                    1. Choose a preset.
+                </li>
+                <li>
+                    2. Repeatedly click the "Create Animation Frame" button to generate
+                    images on separate layers.
+                </li>
+                <li>
+                    3. As you animate, you can choose generators to add, and you can adjust the settings for each. This
+                    will vary the animation effects.
+                    Of course, you can also modify frames
+                    using photoshop tools such as the paintbrush and image adjustments.
+                </li>
+                <li>
+                    4. Once you are finished creating images for your animation, click
+                    "Create Animation Timeline". In the top
+                    menu select Window > Timeline. Save your animation video file.
+
+                </li>
+            </sp-menu>
+            <br>
+            <h6> Tips:</h6>
+            <ul>
+                <li>
+                    I typically start with a 1024x1024px canvas with black background.
+                </li>
+                <li>
+                    I then add images on top of this before I start animating, but you can also just start with a blank
+                    canvas.</li>
+                </li>
+                <li>
+                    I export my animation to video every 300 layers or so. Then create a new document from the last
+                    frame /
+                    top layer.</li>
+                </li>
+                <li>
+                    Also, don't forget that you can modify your frames with tools such as paintbrush (layer-adjustments,
+                    copying/pasting, etc.) as you go.
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <!--------------------------------------------->
+    <!-- GENERATORS  ------------------------------>
+    <!--------------------------------------------->
+    <div class="generatorsPanel" id="generatorsPanel">
+
+        <!-- TAB BAR ------------------------------->
+        <div class="sp-tabs">
+            <div class="sp-tab selected" id="shape-tab">
+                <sp-label>Shape Shift</sp-label>
+            </div>
+            <div class="sp-tab" id="color-tab">
+                <sp-label>Color Shift</sp-label>
+            </div>
+            <div class="sp-tab " id="wave-tab">
+                <sp-label>Wave Machine</sp-label>
+            </div>
+            <div class="sp-tab" id="reaction-tab">
+                <sp-label>Reaction Diffusion</sp-label>
+            </div>
+            <div class="sp-tab" id="warp-tab">
+                <sp-label>Warper</sp-label>
+            </div>
+        </div>
+
+
+        <!-------------------------------------------------------------------->
+        <!-- TAB - SHAPE SHIFTER  ------------------------------>
+        <!-------------------------------------------------------------------->
+        <div class="sp-tab-page visible" id="shape-tab-page" >
+            <div class="group">
+                <h5>
+                    SHAPE SHIFTER
+                </h5>
+                <sp-slider size="S" id="xInput" min="-100" max="100" value="0">
+                    <sp-label slot="label">Move X</sp-label>
+                </sp-slider>
+
+                <sp-slider size="S" id="yInput" min="-100" max="100" value="0">
+                    <sp-label slot="label">Move Y</sp-label>
+                </sp-slider>
+
+                <sp-slider size="S" id="rotInput" min="-30" max="30" value="0">
+                    <sp-number-field style="width: 100px"></sp-number-field>
+                    <sp-label slot="label">Rotate</sp-label>
+                </sp-slider>
+
+                <sp-slider size="S" id="scaleInput" value-label="%" min="80" max="110" value="100">
+                    <sp-label slot="label">Scale</sp-label>
+                </sp-slider>
+
+                <h5>
+                    MIRROR MERGE
+                </h5>
+                <sp-checkbox size="S" id="mirrorHCheck" unchecked>Mirror
+                    Horizontal</sp-checkbox>
+
+                <sp-slider size="S" id="mirrorHDist" value-label="%" min="-25" max="25" value="10">
+                    <sp-label slot="label">Mirror Horizontal Distance</sp-label>
+                </sp-slider>
+
+                <sp-checkbox size="S" id="mirrorVCheck" unchecked>Mirror Vertical</sp-checkbox>
+
+                <sp-slider size="S" id="mirrorVDist" value-label="%" min="-25" max="25" value="10">
+                    <sp-label slot="label">Mirror Vertical Distance </sp-label>
+                </sp-slider>
+            </div>
+        </div>
+
+
+
+        <!------------------------------------------------>
+        <!-- TAB - COLOR SHIFTER  ------------------------>
+        <!------------------------------------------------>
+        <div class="sp-tab-page " id="color-tab-page">
+            <div class="group">
+                <div class="colorShifter" id="colorShifter">
+                    <h5>
+                        COLOR SHIFTER
+                    </h5>
+                    <sp-slider size="S" id="hueSlider" min="-180" max="180" value="5">
+                        <sp-label slot="label">Hue Shift</sp-label>
+                    </sp-slider>
+
+                    <sp-slider size="S" id="satSlider" min="-100" max="100" value="5">
+                        <sp-label slot="label">Saturation Shift</sp-label>
+                    </sp-slider>
+                    <sp-slider size="S" id="valSlider" min="-100" max="100" value="-5">
+                        <sp-label slot="label">Value Shift</sp-label>
+                    </sp-slider>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--------------------------------------------->
+        <!-- TAB - WAVE MACHINE  ------------------------------>
+        <!--------------------------------------------->
+        <div class="sp-tab-page " id="wave-tab-page" >
+            <div class="group">
+                <h5>
+                    WAVE MACHINE
+                </h5>
+
+                </sp-slider>
+                <sp-slider size="S" value-label="px" id="waveHslider" min="-100" max="100" value="10">
+                    <sp-label slot="label">Scale Horizontal
+                    </sp-label>
+                </sp-slider>
+                <sp-slider size="S" id="waveVslider" value-label="px" min="-100" max="100" value="10">
+                    <sp-label slot="label">Scale Vertical
+                    </sp-label>
+                </sp-slider>
+                <sp-slider size="S" id="offsetHslider" value-label="px" min="-300" max="300" value="60">
+                    <sp-label slot="label">Offset Horizontal
+                    </sp-label>
+                </sp-slider>
+                <sp-slider size="S" id="offsetVslider" value-label="px" min="-300" max="300" value="5">
+                    <sp-label slot="label">Offset Vertical
+                    </sp-label>
+                </sp-slider>
+            </div>
+        </div>
+
+
+        <!----------------------------------------------->
+        <!-- TAB - REACTION DIFFUSION  ------------------>
+        <!----------------------------------------------->
+        <div class="sp-tab-page" id="reaction-tab-page">
+            <div class="group">
+                <h5>
+                    REACTION DIFFUSION
+                </h5>
+                <sp-slider size="S" id="highpass" value-label="px" min="2" max="40" value="8">
+                    <sp-label slot="label">High Pass</sp-label>
+                </sp-slider>
+                <sp-slider size="S" id="blur" value-label="px" min="2" max="40" value="5">
+                    <sp-label slot="label">Blur
+                    </sp-label>
+                </sp-slider>
+                <sp-checkbox size="S" id="bw" checked>Black & White</sp-checkbox>
+                <sp-slider size="S" id="posterize" min="2" max="12" value="4">
+                    <sp-label slot="label">Posterize</sp-label>
+                </sp-slider>
+            </div>
+        </div>
+
+
+
+
+
+        <!-------------------------------------------------------------------->
+        <!-- WARP SHIFT PANEL  ------------------------------>
+        <!-------------------------------------------------------------------->
+        <div class="sp-tab-page " id="warp-tab-page">
+            <div class="group">
+                <h5>
+                    WARP SHIFTER
+                </h5>
+                <sp-slider size="S" id="warpXInput" value-label="%" min="-25" max="25" value="10">
+                    <sp-label slot="label">Warp Horizontal</sp-label>
+                </sp-slider>
+                <sp-slider size="S" id="warpYInput" value-label="%" min="-25" max="25" value="10">
+                    <sp-label slot="label">Warp Vertical</sp-label>
+                </sp-slider>
+                <sp-slider size="S" id="warpScaleInput" value-label="%" min="80" max="110" value="97">
+                    <sp-label slot="label">Scale</sp-label>
+                </sp-slider>
+            </div>
+        </div>
+</body>
+
+</html>

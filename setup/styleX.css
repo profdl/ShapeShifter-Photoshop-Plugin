@@ -1,0 +1,121 @@
+
+
+body {
+    color: white;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    padding: 0 16px;
+    overflow: auto;
+ 
+  }
+  
+  #waveMachine {
+    color: white;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    padding: 0 16px;
+    overflow: auto;
+}
+
+#reactionDiffusion {
+  color: white;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+#shapeShifter {
+  color: white;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+#warpShifter {
+  color: white;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+
+#colorShifter {
+  color: white;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+#controlPanel {
+  color: white;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+
+#advColor{
+  color: lightgray;
+}
+
+#advColorOptions{
+  padding: 0 12px;
+
+};
+
+#prompt{
+  height: 150px;
+}
+
+
+#reactionDiffusion {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0 16px;
+  overflow: auto;
+}
+
+
+#colorHueStart {
+  /* background-color: white; */
+  background-image: url('./assets/hue.png');
+
+}
+#colorHueEnd {
+  /* background-color: white; */
+  background-image: url('./assets/hue.png');
+
+}
+
+#colorValueStart {
+  /* background-color: white; */
+  background-image: url('./assets/value.png');
+}
+#colorValueEnd {
+  /* background-color: white; */
+  background-image: url('./assets/value.png');
+}
+
+#layerButton {
+  visibility: hidden;
+}
+
+#reactionButton {
+  visibility: hidden;
+}
+
+#waveButton {
+  visibility: hidden;
+}
+
+
+ul {
+  list-style-type: circle;
+  list-style-position: outside;
+  padding: 10px;
+}
