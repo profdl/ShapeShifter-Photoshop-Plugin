@@ -52,6 +52,7 @@ document
 
     //EXPORT AS VIDEO! /////////////////////
     if (exportState == true) {
+      core.performMenuCommand({ commandID: -509 });
       core.performMenuCommand({ commandID: -507 });
       core.performMenuCommand({ commandID: -505 });
     }
